@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>💘 Nosso Cantinho</title>
+
+  <!-- PWA básico -->
+  <link rel="apple-touch-icon" href="fotos/01.jpeg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <style>
+    body {
+      margin:0;
+      font-family:-apple-system, BlinkMacSystemFont, sans-serif;
+      background:linear-gradient(180deg,#0f0f14,#1b1b24);
+      color:#fff;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .card {
+      width:100%;
+      max-width:420px;
+      background:#1f1f2b;
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 20px 40px rgba(0,0,0,.4);
+      text-align:center;
+    }
+    button {
+      width:100%;
+      padding:16px;
+      font-size:18px;
+      border:0;
+      border-radius:16px;
+      background:#ff4d6d;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+    img {
+      width:100%;
+      margin-top:16px;
+      border-radius:16px;
+      display:none;
+    }
+    .data, .frase {
+      margin-top:10px;
+      font-size:15px;
+      opacity:.95;
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>👀 aperta aqui</h2>
+    <button id="btn">✨ puxar uma lembrança ✨</button>
+
+    <img id="foto" />
+    <div class="data" id="data"></div>
+    <div class="frase" id="frase"></div>
+  </div>
+
+  <script>
+    const album = [
+      { arquivo: "fotos/02.jpeg", data: "21/02/2023", frase: "onde tudo começou 💘" },
+      { arquivo: "fotos/03.jpeg", data: "20/03/2023", frase: "dias escolares cheios de amorzinho" },
+      { arquivo: "fotos/04.jpeg", data: "08/04/2023", frase: "primeiro colar combinandinho" },
+      { arquivo: "fotos/05.jpeg", data: "13/04/2023", frase: "primeiro date (méquizinho)" },
+      { arquivo: "fotos/06.jpeg", data: "18/04/2023", frase: "primeiro cineminha (lembra do be real?)" },
+      { arquivo: "fotos/07.jpeg", data: "23/05/2023", frase: "o olhar mais lindo do universo" },
+      { arquivo: "fotos/08.jpeg", data: "20/03/2023", frase: "dia de conhecer sua família!" },
+      { arquivo: "fotos/09.jpeg", data: "12/06/2023", frase: "primeiro presente de dia dos namorados" },
+      { arquivo: "fotos/10.jpeg", data: "29/07/2023", frase: "maravilhosa, como sempre" },
+      { arquivo: "fotos/11.jpeg", data: "30/06/2023", frase: "seu primeiro aniversário comigo!" },
+      { arquivo: "fotos/12.jpeg", data: "09/05/2023", frase: "meu primeiro beach!" },
+      { arquivo: "fotos/13.jpeg", data: "30/10/2023", frase: "pedido de namoro!" },
+      { arquivo: "fotos/14.jpeg", data: "31/10/2023", frase: "primeiro dia namorando" },
+      { arquivo: "fotos/15.jpeg", data: "05/11/2023", frase: "velma vou te mostrar meu salsichao" },
+      { arquivo: "fotos/16.jpeg", data: "12/11/2023", frase: "dia de conhecer o pessoal de interlagos!" },
+      { arquivo: "fotos/17.jpeg", data: "13/11/2023", frase: "skincareeeeee" },
+      { arquivo: "fotos/18.jpeg", data: "24/11/2023", frase: "pré-interclasse" },
+      { arquivo: "fotos/19.jpeg", data: "02/12/2023", frase: "formandinhos" },
+      { arquivo: "fotos/20.jpeg", data: "19/12/2023", frase: "de volta a salto" },
+      { arquivo: "fotos/21.jpeg", data: "25/12/2023", frase: "primeiro natal!" },
+      { arquivo: "fotos/01.jpeg", data: "23/03/2024", frase: "a mais linda da festa" },
+      { arquivo: "fotos/22.jpeg", data: "30/03/2024", frase: "date arcade" },
+      { arquivo: "fotos/23.jpeg", data: "29/06/2024", frase: "feliz ao seu lado!" },
+      { arquivo: "fotos/24.jpeg", data: "30/11/2022", frase: "7!" },
+      { arquivo: "fotos/25.jpeg", data: "10/10/2023", frase: "primeiro aniversario ao seu lado" },
+      { arquivo: "fotos/26.jpeg", data: "10/01/2026", frase: "primeira praia juntps" },
+      { arquivo: "fotos/01.jpeg", data: "23/03/2024", frase: "te escolheria de novo" }
+    ];
+
+    const btn = document.getElementById("btn");
+    const img = document.getElementById("foto");
+    const dataEl = document.getElementById("data");
+    const fraseEl = document.getElementById("frase");
+
+    btn.onclick = () => {
+      const item = album[Math.floor(Math.random() * album.length)];
+      img.src = item.arquivo + "?v=" + Date.now();
+      img.style.display = "block";
+
+      dataEl.textContent = "📅 " + item.data;
+      dataEl.style.display = "block";
+
+      fraseEl.textContent = "💬 " + item.frase;
+      fraseEl.style.display = "block";
+    };
+  </script>
+</body>
+</html>
